@@ -20,9 +20,9 @@
     - package_install
     - updates
 
-- name: Set timezone to US/Central
+- name: Set timezone to local time
   community.general.timezone:
-    name: US/Central
+    name: {{ time_zone }}
   tags:
     - time
     - timezone
@@ -72,7 +72,7 @@
 # Hopefully this will be fixed in the future and we can set the config settings
 # to FUTURE
 - name: Harden Ciphers
-  copy: 
+  template: 
     src: crypto_config
     dest: /etc/crypto-policies/config
   notify: 
