@@ -2,3 +2,8 @@
 # If you wish to add additional drives to mount create them in the format:
 # { "device_name": "mount_point"} for example { "sdf": "/var/cache/application"}
 mount_points: {}
+time_zone: US/Central
+# You must chose from the following security levels:
+# LEGACY, DEFAULT, FUTURE or FIPS
+crypto_security_level: DEFAULT
+
