@@ -22,7 +22,7 @@
 
 - name: Set timezone to local time
   community.general.timezone:
-    name: {{ time_zone }}
+    name: "{{ time_zone }}"
   tags:
     - time
     - timezone
