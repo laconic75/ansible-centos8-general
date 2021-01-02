@@ -61,6 +61,12 @@
     - package_install
     - firewall
 
+- name: Start and enable firewalld
+  service:
+    name: firewalld
+    state: started
+    enabled: yes
+
 # We're actually currently using the default settings.
 # Setting ciphers to the highest level is breaking the connection to epel.
 # Hopefully this will be fixed in the future and we can set the config settings
