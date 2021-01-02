@@ -35,6 +35,24 @@
     - package_install
     - utils
 
+# Mount and format block devices
+# This is only supporting one type of fstype for all of the mounts
+# Of course it's entirely possible you could want more than one fstype.
+# We'll have to visit that later on how we could handle that.
+- name: Create mount point directories
+  file:
+    path: item.value
+    state: directory
+  loop: "{{ mount_points | dict2items }}"
+
+- name: Mount block devices
+  ansible.posix.mount:
+    src: item.key
+    path: item.value
+    fstype: "{{ fstype }}"
+    state: present 
+  loop: "{{ mount_points | dict2items }}"
+
 - name: Install firewalld
   yum:
     name: firewalld

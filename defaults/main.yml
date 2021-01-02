@@ -1,0 +1,4 @@
+# Block devices to mount.
+# If you wish to add additional drives to mount create them in the format:
+# { "device_name": "mount_point"} for example { "sdf": "/var/cache/application"}
+mount_points: {}
